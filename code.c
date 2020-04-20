@@ -76,3 +76,25 @@ void SJF()
             }
         }
     }
+ //For the 1st process
+    Waiting_time[1]=0;
+    w=w+B[1];
+    t=w;
+    S[1]='F';
+    while(w<Tt)
+    {
+        i=2;
+        while(i<=m)
+        {
+            if(S[i]=='T'&&Arrival_time[i]<=t)
+            {
+                Waiting_time[i]=w;
+                S[i]='F';
+                w=w+B[i];
+                t=w;
+                i=2;
+            }
+            else
+                i++;
+        }
+    }
