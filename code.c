@@ -98,3 +98,30 @@ void SJF()
                 i++;
         }
     }
+
+ 
+    for(i=1;i<=m;i++)
+    {
+        Total_waiting_time=Total_waiting_time+(Waiting_time[i]-Arrival_time[i]);
+        Total_turnaround_time=Total_turnaround_time+((Waiting_time[i]+Burst_time[i])-Arrival_time[i]);
+    }
+    printf("\n\n\tProcess\tAT\tBT\tTAT\tWT\n\n");
+    printf("\n-------------------------------------------------\n");
+    for(i=0;i<=m;i++)
+    {
+     printf("\tP%s\t%d\t%d\t%d\t%d\n",Process_name[i],Arrival_time[i],Burst_time[i],(Waiting_time[i]+Burst_time[i])-Arrival_time[i],Waiting_time[i]-Arrival_time[i]);
+     printf("\n");
+     }
+    Avg_turnaround_time=(float)Total_turnaround_time/m;
+    Avg_wait_time=(float)Total_waiting_time/m;
+    printf("\n\n Average Turn around time=%3.2f ms ",Avg_turnaround_time);
+    printf("\n\n AverageWaiting Time=%3.2f ms",Avg_wait_time);
+    chart();
+}
+void main()
+{
+    //clrscr();
+    Input_data();
+    SJF();
+    getch();
+}
