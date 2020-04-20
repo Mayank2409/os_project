@@ -44,3 +44,35 @@ void chart()
     printf("\n================================================================\n");
     printf("\n");
  }
+void SJF()
+{   char S[10],c[20][20];
+    int w=0,t,i,B[10],Tt=0,temp,j;
+    int temp1;
+    printf("\n\n Shortest Job First Scheduling Algorithm \n\n");
+    Total_waiting_time=Total_turnaround_time=0;
+
+
+    for(i=1;i<=m;i++)
+    {
+        B[i]=Burst_time[i];
+        S[i]='T';
+        Tt=Tt+B[i];
+    }
+    for(i=1;i<=m;i++)
+    {
+        for(j=3;j<=m;j++)
+        {
+            if(B[j-1]>B[j])
+            {
+                temp=B[j-1];
+                temp1=Arrival_time[j-1];
+                B[j-1]=B[j];
+                Arrival_time[j-1]=Arrival_time[j];
+                B[j]=temp;
+                Arrival_time[j]=temp1;
+                strcpy(c[j-1],Process_name[j-1]);
+                strcpy(Process_name[j-1],Process_name[j]);
+                strcpy(Process_name[j],c[j-1]);
+            }
+        }
+    }
