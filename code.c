@@ -27,3 +27,20 @@ void Input_data()
         scanf("%d",&Arrival_time[i]);
     }
 }
+
+void chart()
+{
+    int i;
+    printf("\n\nGANTT CHART");
+    printf("\n================================================================\n");
+    for(i=1;i<=m;i++)
+        printf("|\t%s\t",Process_name[i]);
+    printf("|\t\n");
+    printf("\n================================================================\n");
+    printf("\n");
+    for(i=1;i<=m;i++)
+        printf("%d\t\t",Waiting_time[i]);
+    printf("%d",Waiting_time[m]+Burst_time[m]);
+    printf("\n================================================================\n");
+    printf("\n");
+ }
